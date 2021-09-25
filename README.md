@@ -5,7 +5,7 @@
 dans ce repo vous allez trouver, on va appeler ça la 'v0', un petit programme en deux fichiers
 
 * `main.py`
-* `fibonnacci.py`
+* `fibonacci.py`
 
 ensuite on va vous donner (en clair dans ce README) le code de ces deux mêmes fichiers dans ce qu'on va appeler la 'v2'  
 et 'v2' parce qu'entre la v0 et la v2 on a fait en fait 2 modifications dans la logique du programme
@@ -37,7 +37,7 @@ ce qu'on a fait dans la v2, c'est la somme de deux choses
 
 * `v1`: dans `fibonacci.py`, on a renommé la fonction `fibo()` en `fibo_cached()`,
   et on a modifié son implémentation (par un simple caching) pour rendre l'algorithme linéaire  
-  le changement du nom de fonction a du coup rendu certains changements nécéssaires dans `main.py` également (dans la vraie vie on aurait certainement conservé le même nom, justement pour éviter ça, mais là dans cet exercice on fait exprés de changer le nom)
+  le changement du nom de fonction a du coup rendu certains changements nécéssaires dans `main.py` également (dans la vraie vie on aurait certainement conservé le même nom, justement pour éviter ça, mais là dans cet exercice on fait exprès de changer le nom)
 * `v2`: à ce stade, on a changé la méthode d'acquisition du paramètre depuis la ligne de commande; au lieu d'utiliser `sys.argv` qui est simple mais très limité, on passe par [le module `argparse`](https://docs.python.org/3/howto/argparse.html) qui permet par exemple d'ajouter des options
 
 ## à vous de jouer
@@ -48,7 +48,7 @@ n'oubliez pas les bonnes pratiques à propos de la rédaction des messages des c
 
 ### indice
 
-vous allez voir qu'à un moment vous allez avoir besoin d'ajouter dans l'index (qui on le rappelle s'appelle aussi le *stage*) seulement certaines lignes, et pas tout un un fichier d'un coup
+vous allez voir qu'à un moment vous allez avoir besoin d'ajouter dans l'index (qui on le rappelle s'appelle aussi le *stage*) seulement certaines lignes, et pas tout un fichier d'un coup
 
 pour cela vous avez deux options abordables
 
@@ -68,7 +68,7 @@ $ python main.py 40
 fibo_cached(50) = 102334155
 
 
-# remettre la v1 dans les fichiers
+# pour remettre la v1 dans les fichiers, on fait revenir les fichiers d'un cran dans l'historique des versions de git
 $ git restore --source=HEAD~ -- main.py fibonacci.py
 
 # le code doit toujours tourner
@@ -76,7 +76,7 @@ $ python main.py 40
 fibo_cached(50) = 102334155
 
 
-# remettre la v0 dans les fichiers
+# remettre la v0 dans les fichiers, on fait revenir les fichiers de deux crans dans l'historique
 $ git restore --source=HEAD~2 -- main.py fibonacci.py
 
 # le code doit encore tourner
@@ -87,7 +87,7 @@ fibo(30) = 832040
 
 ## pour les rapides
 
-pour ceux qui ont fini avant les autres:
+pour ceux qui ont fini avant les autres :
 
 faites une v3, qui permet de choisir sur la ligne de commande entre les deux versions de fibonacci
 
@@ -137,6 +137,7 @@ la suite de fibonacci
 
 # on optimise
 
+# si cache ne fonctionne pas, remplacez par lru_cache
 from functools import cache
 
 @cache
